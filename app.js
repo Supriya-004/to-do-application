@@ -33,12 +33,3 @@ function addTodo(){
     displayTodos();
 }
 
-function deleteTodo(index){
-    todos.splice(index,1);
-
-    localStorage.setItem("todos", JSON.stringify(todos));
-
-    displayTodos();
-}
-
-displayTodos();

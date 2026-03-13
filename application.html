@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My ToDo App</title>
+
+</head>
+
+
+<body>
+
+<div class="container">
+    <h1>My ToDo List</h1>
+
+    <div class="input-box">
+        <input type="text" id="todoInput" placeholder="Enter your task...">
+        <button onclick="addTodo()">Add</button>
+    </div>
+
+    <ul id="todoList"></ul>
+</div>
+
+<script src="todo.js"></script>
+
+
+<script>
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+function displayTodos(){
+    const list = document.getElementById("todoList");
+    list.innerHTML = "";
+
+    todos.forEach((todo,index)=>{
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+        ${todo}
+        <span class="delete" onclick="deleteTodo(${index})">X</span>
+        `;
+
+        list.appendChild(li);
+    });
+}
+
+function addTodo(){
+    const input = document.getElementById("todoInput");
+    const value = input.value.trim();
+
+    if(value === ""){
+        alert("Please enter a task");
+        return;
+    }
+
+    todos.push(value);
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+
+    input.value="";
+    displayTodos();
+}
+
+function deleteTodo(index){
+    todos.splice(index,1);
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+
+    displayTodos();
+}
+
+displayTodos();
+</script>
+</body>
+</html>

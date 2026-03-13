@@ -1,6 +1,6 @@
 body{
     font-family: Arial;
-    background: linear-gradient(120deg,#f6d365,#fda085);
+    background: linear-gradient(120deg,#f059b6,#2d1c27);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -10,7 +10,7 @@ body{
 .container{
     background:white;
     padding:30px;
-    width:350px;
+    width:650px;
     border-radius:10px;
     box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
@@ -35,8 +35,8 @@ button{
     padding:10px 15px;
     margin-left:10px;
     border:none;
-    background:#ff7a7a;
-    color:white;
+    background:#bf35a8;
+    color:rgb(18, 14, 14);
     border-radius:5px;
     cursor:pointer;
 }
